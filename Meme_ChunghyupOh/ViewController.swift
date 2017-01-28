@@ -79,6 +79,7 @@ UINavigationControllerDelegate {
     }
     
     func repositionTextView(){
+        //텍스트 필드의 경우 이미지가 있을경우 이미지의 위치 상,하단에 위치하도록 하고 아직 이미지가 없는 경우 따로 처리한다.
         if let imageRect = calculateImageSize() {
             print("reposition by image")
             topTextField.frame.origin.y = imageRect.origin.y
