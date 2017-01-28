@@ -11,6 +11,7 @@ import UIKit
 
 class MemeTextFiledDelegate: NSObject, UITextFieldDelegate{
     var currentTextField: UITextField!
+    var vc: ViewController!
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.currentTextField = textField
@@ -21,7 +22,12 @@ class MemeTextFiledDelegate: NSObject, UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        vc.repositionTextView()
         return true
     }
-
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        vc.repositionTextView()
+    }
+    
 }
